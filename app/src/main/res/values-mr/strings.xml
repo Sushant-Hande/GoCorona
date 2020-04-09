@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">GoCorona</string>
+    <string name="share">Share</string>
+    <string name="home">होम</string>
+    <string name="notifications">Notification</string>
+    <string name="setting">सेटींग</string>
+    <string name="language">भाषा</string>
+    <string name="news">न्यूज</string>
+    <string name="corona_updates">कोरोना अपडेट</string>
+    <string name="covid19">COVID&#8211;19</string>
+    <string name="no_notifications_available">No notifications available....</string>
+    <string name="select_langugae">Select Language</string>
+    <string name="ok">ठीक</string>
+    <string name="cancel">Cancel</string>
+
+    <!--Precaution Strings-->
+    <string name="precautions">खबरदारी</string>
+    <string name="precaution1">लोकांपासून दूर रहा आणि सामाजिक अंतर कायम ठेवा</string>
+    <string name="precaution2">किमान 20 सेकंद, आपले हात साबणाने वारंवार धुवा.</string>
+    <string name="precaution3">आपले नाक, डोळे आणि चेहरा वारंवार स्पर्श करणे टाळा.</string>
+    <string name="precaution4">आपण आजारी असल्यास घरीच रहा.</string>
+    <string name="precaution5">शिंका आणि खोकला असताना रुमाल वापरा.</string>
+
+    <!--Symptoms String-->
+    <string name="symptoms">लक्षणे</string>
+    <string name="symptoms_heading">COVID&#8211;19 लक्षणे सौम्य ते गंभीरापर्यंत असतात.
+        संसर्ग झाल्यानंतर लक्षणे विकसित होण्यास 2&#8211;14 दिवस लागतात. लक्षणे खालीलप्रमाणे असू शकतात:</string>
+    <string name="symptom1">ताप</string>
+    <string name="symptom2">खोकला</string>
+    <string name="symptom3">श्वास घेण्यास त्रास होणे</string>
+    <string name="symptom4">थकवा</string>
+    <string name="symptom5">वेदना</string>
+    <string name="symptom6">वाहणारे नाक</string>
+    <string name="symptom7">घसा खवखवणे</string>
+    <string name="total_cases">एकूण प्रकरणे</string>
+    <string name="deaths">मृत्यू</string>
+    <string name="recovered">बरे झालेले</string>
+    <string name="search_by_country">देश शोधा</string>
+
+    <!--Share Strings-->
+    <string name="share_app">जगातील विविध देशांमधील, कोरोनाविषयी नवीनतम माहिती मिळविण्यासाठी GoCorona अॅप डाउनलोड करा. GoCorona अॅप, इंग्रजी, मराठी आणि हिंदी भाषांमध्ये उपलब्ध आहे.</string>
+    <string name="New">New</string>
+    <string name="country_details">Country Details</string>
+    <string name="active">Active</string>
+    <string name="check_internet_connection">Check internet connection and try again</string>
+
+</resources>

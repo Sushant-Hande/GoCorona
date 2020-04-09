@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">GoCorona</string>
+    <string name="share">Share</string>
+    <string name="home">Home</string>
+    <string name="notifications">Notification</string>
+    <string name="setting">Setting</string>
+    <string name="language">Language</string>
+    <string name="news">News</string>
+    <string name="corona_updates">Corona Updates</string>
+    <string name="covid19">COVID&#8211;19</string>
+    <string name="no_notifications_available">No notifications available....</string>
+    <string name="select_langugae">Select Language</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <!--Precaution Strings-->
+    <string name="precautions">Precautions</string>
+    <string name="precaution1">Stay away from people and maintain social distancing.</string>
+    <string name="precaution2">Wash your hands frequently with soap, at least for 20 seconds.</string>
+    <string name="precaution3">Avoid frequently touching your nose,eyes and face.</string>
+    <string name="precaution4">Stay at home if you feel sick.</string>
+    <string name="precaution5">Use handkerchief while sneezing and coughing.</string>
+
+    <!--Symptoms String-->
+    <string name="symptoms">Symptoms</string>
+    <string name="symptoms_heading">COVID&#8211;19 symptoms range from mild to severe.
+        It takes 2&#8211;14 days after exposure for symptoms to develop. Symptoms may include:</string>
+    <string name="symptom1">Fever</string>
+    <string name="symptom2">Cough</string>
+    <string name="symptom3">Shortness of breath or difficulty breathing</string>
+    <string name="symptom4">Tiredness</string>
+    <string name="symptom5">Aches</string>
+    <string name="symptom6">Runny nose</string>
+    <string name="symptom7">Sore throat</string>
+    <string name="total_cases">Confirmed</string>
+    <string name="deaths">Deaths</string>
+    <string name="recovered">Recovered</string>
+    <string name="search_by_country">Search by country</string>
+
+    <!--Share Strings-->
+    <string name="share_app">Download the GoCorona application to get the latest information about the Corona
+        Virus from the different countries of the world. It also helps you with Symptoms, Precautions and
+        other important information. GoCorona application is available in english, marathi and hindi languages.</string>
+    <string name="New">New</string>
+    <string name="country_details">Country Details</string>
+    <string name="active">Active</string>
+    <string name="critical">Critical</string>
+    <string name="today_deaths">Today Deaths</string>
+    <string name="check_internet_connection">Check internet connection and try again</string>
+    <string name="retry">Retry</string>
+
+</resources>
