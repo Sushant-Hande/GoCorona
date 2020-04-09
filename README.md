@@ -1,12 +1,18 @@
 # GoCorona
 The GoCorona is an Android application that provides the latest information and updates about the Corona Virus(COVID-19) from all the countries of the world.
 
+# Built With
+- [Kotlin](https://kotlinlang.org) Official programming language for Android application development by Google.
+- [Retrofit](https://square.github.io/retrofit/) A type-safe HTTP client for Android and Java.
+- [Android Material Components](https://github.com/material-components/material-components-android) The material UI components for Android, designed and developed by Google.
+
+
 # Credits
 Thanks to [Postman CORONAVIRUS COVID19 API](https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest) for open-source API.
 
 Lincense
 ========
-```
+
     Copyright 2020 Sushant Hande
 
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,4 +26,3 @@ Lincense
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-    ```
