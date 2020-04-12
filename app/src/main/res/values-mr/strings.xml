@@ -43,5 +43,7 @@
     <string name="country_details">Country Details</string>
     <string name="active">Active</string>
     <string name="check_internet_connection">Check internet connection and try again</string>
+    <string name="india_updates">India Updates</string>
+    <string name="search_by_state">Search by state</string>
 
 </resources>

@@ -5,25 +5,26 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.sushanthande.gocorona.GCApplication"
+        android:name=".GCApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.sushanthande.gocorona.ui.covidupdate.countrydetails.CountryDetailsActivity"></activity>
-        <activity android:name="com.sushanthande.gocorona.BaseActivity" />
-        <activity android:name="com.sushanthande.gocorona.ui.covid.WashHandsActivity" />
-        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".ui.indiaupdate.IndiaUpdateActivity"></activity>
+        <activity android:name=".ui.covidupdate.countrydetails.CountryDetailsActivity" />
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".ui.covid.WashHandsActivity" />
+        <activity android:name=".TestActivity" />
         <activity
-            android:name="com.sushanthande.gocorona.ui.symptoms.SymptomsActivity"
+            android:name=".ui.symptoms.SymptomsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="fullSensor" />
-        <activity android:name="com.sushanthande.gocorona.ui.precautions.PrecautionsActivity" />
-        <activity android:name="com.sushanthande.gocorona.ui.covidupdate.CovidUpdateActivity" />
+        <activity android:name=".ui.precautions.PrecautionsActivity" />
+        <activity android:name=".ui.covidupdate.CovidUpdateActivity" />
         <activity
-            android:name="com.sushanthande.gocorona.ui.splashscreen.SplashScreenActivity"
+            android:name=".ui.splashscreen.SplashScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="fullSensor"
             android:theme="@style/FullscreenTheme">
@@ -34,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.sushanthande.gocorona.ui.dashboard.DashboardActivity"
+            android:name=".ui.dashboard.DashboardActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="fullSensor" />
 

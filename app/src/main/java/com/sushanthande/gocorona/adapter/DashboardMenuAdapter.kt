@@ -1,11 +1,13 @@
 package com.sushanthande.gocorona.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.sushanthande.gocorona.R
 import com.sushanthande.gocorona.model.DashboardMenu
@@ -20,7 +22,10 @@ class DashboardMenuAdapter(
 ) :
     RecyclerView.Adapter<DashboardMenuAdapter.ViewHolder>() {
 
+    lateinit var context: Context
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        context = parent.context
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.item_dashboard,
@@ -35,9 +40,10 @@ class DashboardMenuAdapter(
         holder.tvMenu.text = menu.name
         holder.ivMenu.setImageDrawable(menu.image)
         holder.ivMenu.setColorFilter(
-            menu.tintColor, android.graphics.PorterDuff.Mode.SRC_IN
+            ContextCompat.getColor(context, R.color.blue), android.graphics.PorterDuff.Mode.SRC_IN
         )
-        holder.ivMenuParent.supportBackgroundTintList = menu.backgroundTint
+        holder.ivMenuParent.supportBackgroundTintList =
+            ContextCompat.getColorStateList(context, R.color.blue_transparent)
         holder.cvMenu.setOnClickListener {
             menuClickListener.onMenuClick(menu.id)
         }

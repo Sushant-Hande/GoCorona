@@ -14,14 +14,11 @@ class DashboardMenu {
 
     var image: Drawable? = null
 
-    var tintColor: Int = 0
-
-    var backgroundTint: ColorStateList? = null
-
     enum class Menu(val id: Int) {
-        CORONA_UPDATES(1),
-        WHAT_IS_CORONA(2),
+        INDIA_UPDATES(1),
+        WORLD_UPDATES(2),
         SYMPTOMS(3),
-        PRECAUTIONS(4)
+        PRECAUTIONS(4),
+        WASH_HANDS(5)
     }
 }

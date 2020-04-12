@@ -10,15 +10,12 @@ interface CovidUpdateContract {
 
     interface View {
         fun setCovidUpdate(globalDataModel: GlobalDataModel)
-
         fun setAllCountryData(countryDataList: List<CountryDataModel>)
-
         fun onGetDataFailed()
     }
 
     interface Presenter {
         fun getCovidUpdate()
-
         fun getAllCountryData()
     }
 }

@@ -38,7 +38,7 @@ class CovidUpdateActivity : BaseActivity(), CovidUpdateContract.View,
             getCovidUpdate()
         } else {
             svParent.visibility = GONE
-            groupCheckInternet.visibility = VISIBLE
+            groupCheckInternet.visibility = GONE
         }
         events()
     }
@@ -68,6 +68,7 @@ class CovidUpdateActivity : BaseActivity(), CovidUpdateContract.View,
 
         btnRetry.setOnClickListener {
             if (isNetworkAvailable(this)) {
+                groupCheckInternet.visibility = GONE
                 getCovidUpdate()
             }
         }
@@ -101,7 +102,6 @@ class CovidUpdateActivity : BaseActivity(), CovidUpdateContract.View,
         svParent.visibility = VISIBLE
         shimmerContainer.stopShimmer()
         shimmerContainer.visibility = GONE
-
     }
 
     override fun onCountryClick(countryDataModel: CountryDataModel) {

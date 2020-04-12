@@ -14,7 +14,7 @@ import retrofit2.Response
 class CovidUpdatePresenterImpl(val view: CovidUpdateContract.View) : CovidUpdateContract.Presenter {
 
     override fun getCovidUpdate() {
-        val apiRequest = ApiClient.createService(ApiRequests::class.java)
+        val apiRequest = ApiClient.createGlobalService(ApiRequests.Global::class.java)
         val call = apiRequest?.getGlobalData()
         call?.enqueue(object : Callback<GlobalDataModel> {
             override fun onResponse(
@@ -34,7 +34,7 @@ class CovidUpdatePresenterImpl(val view: CovidUpdateContract.View) : CovidUpdate
     }
 
     override fun getAllCountryData() {
-        val apiRequest = ApiClient.createService(ApiRequests::class.java)
+        val apiRequest = ApiClient.createGlobalService(ApiRequests.Global::class.java)
         val call = apiRequest?.getAllCountryData()
         call?.enqueue(object : Callback<List<CountryDataModel>> {
             override fun onResponse(

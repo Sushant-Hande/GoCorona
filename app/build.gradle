@@ -24,6 +24,10 @@ android {
         }
     }
 
+    dataBinding {
+        enabled true
+    }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -57,5 +61,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'com.android.support:cardview-v7:28.0.0'
 }
