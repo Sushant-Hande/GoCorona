@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.covidupdate.countrydetails.CountryDetailsActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        app:titleTextColor="@color/black">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivFlag"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_circle_placeholder" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvCountryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="@string/country_details"
+            android:textAppearance="@style/ToolBarTextAppearance" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvTotalCases"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:lines="1"
+        android:text="@string/total_cases"
+        app:layout_constraintEnd_toStartOf="@+id/tvTodayCases"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolBar" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvTodayCases"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:lines="1"
+        android:text="@string/New"
+        app:layout_constraintBottom_toBottomOf="@id/tvTotalCases"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvTotalCases"
+        app:layout_constraintTop_toTopOf="@id/tvTotalCases" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvDeaths"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:lines="1"
+        android:text="@string/deaths"
+        android:textColor="@color/red"
+        app:layout_constraintEnd_toStartOf="@+id/tvTodayDeaths"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTotalCases" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvTodayDeaths"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:lines="1"
+        android:text="@string/today_deaths"
+        android:textColor="@color/red"
+        app:layout_constraintBottom_toBottomOf="@id/tvDeaths"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvDeaths"
+        app:layout_constraintTop_toTopOf="@id/tvDeaths" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvActive"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:lines="1"
+        android:text="@string/active"
+        android:textColor="@color/red"
+        app:layout_constraintEnd_toStartOf="@+id/tvCritical"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDeaths" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvCritical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:lines="1"
+        android:text="@string/critical"
+        android:textColor="@color/red"
+        app:layout_constraintBottom_toBottomOf="@id/tvActive"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvActive"
+        app:layout_constraintTop_toTopOf="@id/tvActive" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvRecovered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:lines="1"
+        android:text="@string/recovered"
+        android:textColor="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvActive" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

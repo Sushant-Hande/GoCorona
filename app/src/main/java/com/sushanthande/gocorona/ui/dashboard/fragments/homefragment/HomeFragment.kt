@@ -9,18 +9,19 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sushanthande.gocorona.R
 import com.sushanthande.gocorona.adapter.DashboardMenuAdapter
+import com.sushanthande.gocorona.databinding.HomeFragmentBinding
 import com.sushanthande.gocorona.model.DashboardMenu
 import com.sushanthande.gocorona.ui.covidupdate.CovidUpdateActivity
 import com.sushanthande.gocorona.ui.indiaupdate.IndiaUpdateActivity
 import com.sushanthande.gocorona.ui.precautions.PrecautionsActivity
 import com.sushanthande.gocorona.ui.symptoms.SymptomsActivity
-import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
  *Created by Sushant Hande on 25-03-2020
  */
 class HomeFragment : Fragment(), HomeFragmentContract.View, DashboardMenuAdapter.MenuClickListener {
 
+    private lateinit var binding: HomeFragmentBinding
     private lateinit var presenter: HomeFragmentContract.Presenter
 
     override fun onCreateView(
@@ -29,7 +30,8 @@ class HomeFragment : Fragment(), HomeFragmentContract.View, DashboardMenuAdapter
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding = HomeFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,8 +41,8 @@ class HomeFragment : Fragment(), HomeFragmentContract.View, DashboardMenuAdapter
     }
 
     override fun setDashboardMenu(menuList: ArrayList<DashboardMenu>) {
-        rvMenu.adapter = DashboardMenuAdapter(getMenuList(), this)
-        rvMenu.layoutManager = GridLayoutManager(activity, 2)
+        binding.rvMenu.adapter = DashboardMenuAdapter(getMenuList(), this)
+        binding.rvMenu.layoutManager = GridLayoutManager(activity, 2)
     }
 
     override fun onMenuClick(menuId: Int) {
@@ -61,10 +63,6 @@ class HomeFragment : Fragment(), HomeFragmentContract.View, DashboardMenuAdapter
             DashboardMenu.Menu.PRECAUTIONS.id -> {
                 startActivity(Intent(activity, PrecautionsActivity::class.java))
             }
-
-            DashboardMenu.Menu.WASH_HANDS.id -> {
-                startActivity(Intent(activity, IndiaUpdateActivity::class.java))
-            }
         }
     }
 
@@ -72,31 +70,25 @@ class HomeFragment : Fragment(), HomeFragmentContract.View, DashboardMenuAdapter
         val indiaUpdateMenu = DashboardMenu()
         indiaUpdateMenu.id = DashboardMenu.Menu.INDIA_UPDATES.id
         indiaUpdateMenu.name = getString(R.string.india_updates)
-        indiaUpdateMenu.image = activity?.getDrawable(R.drawable.ic_india)
+        indiaUpdateMenu.image = R.drawable.ic_india
         add(indiaUpdateMenu)
 
         val coronaUpdateMenu = DashboardMenu()
         coronaUpdateMenu.id = DashboardMenu.Menu.WORLD_UPDATES.id
-        coronaUpdateMenu.name = getString(R.string.corona_updates)
-        coronaUpdateMenu.image = activity?.getDrawable(R.drawable.ic_world)
+        coronaUpdateMenu.name = getString(R.string.global_updates)
+        coronaUpdateMenu.image = R.drawable.ic_world
         add(coronaUpdateMenu)
 
         val symptomsMenu = DashboardMenu()
         symptomsMenu.id = DashboardMenu.Menu.SYMPTOMS.id
         symptomsMenu.name = getString(R.string.symptoms)
-        symptomsMenu.image = activity?.getDrawable(R.drawable.ic_cough)
+        symptomsMenu.image = R.drawable.ic_cough
         add(symptomsMenu)
 
         val precautionsMenu = DashboardMenu()
         precautionsMenu.id = DashboardMenu.Menu.PRECAUTIONS.id
         precautionsMenu.name = getString(R.string.precautions)
-        precautionsMenu.image = activity?.getDrawable(R.drawable.ic_air_mask)
+        precautionsMenu.image = R.drawable.ic_air_mask
         add(precautionsMenu)
-
-        val washHandsMenu = DashboardMenu()
-        washHandsMenu.id = DashboardMenu.Menu.WASH_HANDS.id
-        washHandsMenu.name = getString(R.string.covid19)
-        washHandsMenu.image = activity?.getDrawable(R.drawable.ic_virus)
-        add(washHandsMenu)
     }
 }

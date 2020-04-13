@@ -12,13 +12,15 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.pixplicity.easyprefs.library.Prefs
 import com.sushanthande.gocorona.LanguageUtil
 import com.sushanthande.gocorona.R
+import com.sushanthande.gocorona.databinding.SettingFragmentBinding
 import com.sushanthande.gocorona.ui.splashscreen.SplashScreenActivity
-import kotlinx.android.synthetic.main.fragment_setting.*
 
 /**
  *Created by Sushant Hande on 25-03-2020
  */
 class SettingFragment : Fragment(), View.OnClickListener {
+
+    lateinit var binding: SettingFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,12 +28,13 @@ class SettingFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_setting, container, false)
+        binding = SettingFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cvLanguage.setOnClickListener(this)
+        binding.cvLanguage.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {

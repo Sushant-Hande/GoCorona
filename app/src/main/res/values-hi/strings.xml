@@ -6,7 +6,7 @@
     <string name="setting">सेटींग</string>
     <string name="language">भाषा</string>
     <string name="news">न्यूज</string>
-    <string name="corona_updates">कोरोना अपडेट</string>
+    <string name="global_updates">कोरोना अपडेट</string>
     <string name="covid19">COVID&#8211;19</string>
     <string name="no_notifications_available">No notifications available....</string>
     <string name="select_langugae">भाषा चूने</string>
@@ -45,6 +45,7 @@
     <string name="country_details">Country Details</string>
     <string name="active">Active</string>
     <string name="check_internet_connection">Check internet connection and try again</string>
+    <string name="retry">Retry</string>
     <string name="india_updates">India Updates</string>
     <string name="search_by_state">Search by state</string>
 

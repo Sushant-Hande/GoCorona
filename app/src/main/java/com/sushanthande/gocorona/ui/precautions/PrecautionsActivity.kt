@@ -4,35 +4,37 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sushanthande.gocorona.BaseActivity
 import com.sushanthande.gocorona.BuildConfig
 import com.sushanthande.gocorona.R
 import com.sushanthande.gocorona.adapter.CommonDataAdapter
+import com.sushanthande.gocorona.databinding.PrecautionsActivityBinding
 import com.sushanthande.gocorona.model.CommonDataModel
-import kotlinx.android.synthetic.main.activity_precautions.*
 
 /**
  *Created by Sushant Hande on 03-04-2020
  */
 class PrecautionsActivity : BaseActivity(), PrecautionsContract.View {
 
+    private lateinit var binding: PrecautionsActivityBinding
     private lateinit var precautionDataAdapter: CommonDataAdapter
     private lateinit var presenter: PrecautionsContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_precautions)
-        setSupportActionBar(toolBar)
-        toolBar.setNavigationOnClickListener { finish() }
+        binding = DataBindingUtil.setContentView(this, R.layout.precautions_activity)
+        setSupportActionBar(binding.toolBar)
+        binding.toolBar.setNavigationOnClickListener { finish() }
         presenter = PrecautionsPresenterImpl(this)
         presenter.setPrecautionsList(getPrecautionsList())
     }
 
     override fun setPrecautionsList(precautionsList: List<CommonDataModel>) {
         precautionDataAdapter = CommonDataAdapter(precautionsList)
-        rvPrecautions.adapter = precautionDataAdapter
-        rvPrecautions.layoutManager = LinearLayoutManager(this)
+        binding.rvPrecautions.adapter = precautionDataAdapter
+        binding.rvPrecautions.layoutManager = LinearLayoutManager(this)
     }
 
     private fun getPrecautionsList() = ArrayList<CommonDataModel>().apply {

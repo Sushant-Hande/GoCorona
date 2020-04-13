@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import coil.api.load
 import com.sushanthande.gocorona.R
 import com.sushanthande.gocorona.model.CountryDataModel
-import kotlinx.android.synthetic.main.activity_country_details.*
+import kotlinx.android.synthetic.main.country_details_activity.*
 
 /**
  *Created by Sushant Hande on 07-04-2020
@@ -17,7 +17,7 @@ class CountryDetailsActivity : AppCompatActivity(), CountryDetailsContract.View 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_country_details)
+        setContentView(R.layout.country_details_activity)
         setSupportActionBar(toolBar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         toolBar.setNavigationOnClickListener { finish() }

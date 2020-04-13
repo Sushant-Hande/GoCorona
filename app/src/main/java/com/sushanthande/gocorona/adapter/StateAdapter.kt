@@ -3,7 +3,7 @@ package com.sushanthande.gocorona.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sushanthande.gocorona.databinding.ItemStateBinding
+import com.sushanthande.gocorona.databinding.StateItemBinding
 
 import com.sushanthande.gocorona.model.StateModel
 
@@ -17,8 +17,9 @@ class StateAdapter(private val stateList: List<StateModel>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val itemBinding: ItemStateBinding = ItemStateBinding.inflate(layoutInflater, parent, false)
-        return ViewHolder(itemBinding)
+        val stateItemBinding: StateItemBinding =
+            StateItemBinding.inflate(layoutInflater, parent, false)
+        return ViewHolder(stateItemBinding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -27,12 +28,12 @@ class StateAdapter(private val stateList: List<StateModel>) :
 
     override fun getItemCount(): Int = filteredDataList.size
 
-    class ViewHolder(private val binding: ItemStateBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val stateItemBinding: StateItemBinding) :
+        RecyclerView.ViewHolder(stateItemBinding.root) {
 
         fun bind(stateModel: StateModel) {
-            binding.state = stateModel
-            binding.executePendingBindings()
+            stateItemBinding.state = stateModel
+            stateItemBinding.executePendingBindings()
         }
     }
 

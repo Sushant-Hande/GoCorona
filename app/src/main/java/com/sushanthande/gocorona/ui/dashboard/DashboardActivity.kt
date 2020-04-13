@@ -9,11 +9,11 @@ import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.sushanthande.gocorona.BuildConfig
 import com.sushanthande.gocorona.R
-import com.sushanthande.gocorona.R.layout.activity_dashboard
+import com.sushanthande.gocorona.R.layout.dashboard_activity
 import com.sushanthande.gocorona.adapter.ViewPagerAdapter
 import com.sushanthande.gocorona.ui.dashboard.fragments.homefragment.HomeFragment
 import com.sushanthande.gocorona.ui.dashboard.fragments.setting.SettingFragment
-import kotlinx.android.synthetic.main.activity_dashboard.*
+import kotlinx.android.synthetic.main.dashboard_activity.*
 
 /**
  *Created by Sushant Hande on 25-03-2020
@@ -24,7 +24,7 @@ class DashboardActivity : AppCompatActivity(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activity_dashboard)
+        setContentView(dashboard_activity)
         setSupportActionBar(toolBar)
         presenter = DashboardPresenterImpl(this)
         presenter.setScreenDetails()

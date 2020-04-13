@@ -4,35 +4,38 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sushanthande.gocorona.BaseActivity
 import com.sushanthande.gocorona.BuildConfig
 import com.sushanthande.gocorona.R
 import com.sushanthande.gocorona.adapter.CommonDataAdapter
+import com.sushanthande.gocorona.databinding.SymptomsActivityBinding
 import com.sushanthande.gocorona.model.CommonDataModel
-import kotlinx.android.synthetic.main.activity_symptoms.*
+
 
 /**
  *Created by Sushant Hande on 29-03-2020
  */
 class SymptomsActivity : BaseActivity(), SymptomsContract.View {
 
+    private lateinit var binding: SymptomsActivityBinding
     private lateinit var symptomAdapter: CommonDataAdapter
     private lateinit var presenter: SymptomsContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_symptoms)
-        setSupportActionBar(toolBar)
-        toolBar.setNavigationOnClickListener { finish() }
+        binding = DataBindingUtil.setContentView(this, R.layout.symptoms_activity)
+        setSupportActionBar(binding.toolBar)
+        binding.toolBar.setNavigationOnClickListener { finish() }
         presenter = SymptomsPresenterImpl(this)
         presenter.setSymptomsList(getSymptomsList())
     }
 
     override fun setSymptomsList(symptomsList: List<CommonDataModel>) {
         symptomAdapter = CommonDataAdapter(symptomsList)
-        rvSymptoms.adapter = symptomAdapter
-        rvSymptoms.layoutManager = LinearLayoutManager(this)
+        binding.rvSymptoms.adapter = symptomAdapter
+        binding.rvSymptoms.layoutManager = LinearLayoutManager(this)
     }
 
     private fun getSymptomsList() = ArrayList<CommonDataModel>().apply {

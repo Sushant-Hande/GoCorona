@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.sushanthande.gocorona.model.CommonDataModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDataBackground"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/ic_circle"
+                android:backgroundTint="@color/blue_transparent"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@id/tvData"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvData" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivData"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="centerCrop"
+                android:src="@{data.image}"
+                android:tint="@color/blue"
+                app:layout_constraintBottom_toBottomOf="@id/ivDataBackground"
+                app:layout_constraintEnd_toEndOf="@id/ivDataBackground"
+                app:layout_constraintStart_toStartOf="@id/ivDataBackground"
+                app:layout_constraintTop_toTopOf="@id/ivDataBackground" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@{data.dataString}"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivDataBackground"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/precaution3" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="25dp"
+                android:background="@color/gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvData" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

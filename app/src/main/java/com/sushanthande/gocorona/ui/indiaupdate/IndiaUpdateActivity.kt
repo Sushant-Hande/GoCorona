@@ -9,9 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sushanthande.gocorona.BaseActivity
 import com.sushanthande.gocorona.R
 import com.sushanthande.gocorona.adapter.StateAdapter
-import com.sushanthande.gocorona.databinding.ActivityIndiaUpdateBinding
+import com.sushanthande.gocorona.databinding.IndiaUpdateActivityBinding
 import com.sushanthande.gocorona.model.StateModel
-import kotlinx.android.synthetic.main.activity_india_update.*
 import kotlinx.android.synthetic.main.layout_shimmer.view.*
 
 
@@ -20,13 +19,13 @@ import kotlinx.android.synthetic.main.layout_shimmer.view.*
  */
 class IndiaUpdateActivity : BaseActivity(), IndiaUpdateContract.View {
 
-    private lateinit var binding: ActivityIndiaUpdateBinding
+    private lateinit var binding: IndiaUpdateActivityBinding
     lateinit var presenter: IndiaUpdateContract.Presenter
     lateinit var stateAdapter: StateAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_india_update)
+        binding = DataBindingUtil.setContentView(this, R.layout.india_update_activity)
         presenter = IndiaUpdatePresenterImpl(this)
         if (isNetworkAvailable(this)) {
             presenter.getIndiaUpdate()
@@ -42,36 +41,36 @@ class IndiaUpdateActivity : BaseActivity(), IndiaUpdateContract.View {
         binding.total = totalObject
         stateModelList.removeAt(0)
         stateAdapter = StateAdapter(stateModelList)
-        rvState.adapter = stateAdapter
-        rvState.layoutManager = LinearLayoutManager(this)
+        binding. rvState.adapter = stateAdapter
+        binding.rvState.layoutManager = LinearLayoutManager(this)
         showParentView()
         hideShimmerView()
     }
 
     override fun showParentView() {
-        parentLayout.visibility = VISIBLE
+        binding.parentLayout.visibility = VISIBLE
     }
 
     override fun hideParentView() {
-        parentLayout.visibility = GONE
+        binding.parentLayout.visibility = GONE
     }
 
     override fun showShimmerView() {
-        layoutShimmer.visibility = VISIBLE
-        layoutShimmer.shimmerContainer.startShimmer()
+        binding.layoutShimmer.visibility = VISIBLE
+        binding.layoutShimmer.shimmerContainer.startShimmer()
     }
 
     override fun hideShimmerView() {
-        layoutShimmer.shimmerContainer.stopShimmer()
-        layoutShimmer.visibility = GONE
+        binding.layoutShimmer.shimmerContainer.stopShimmer()
+        binding.layoutShimmer.visibility = GONE
     }
 
     override fun showCheckInternetView() {
-        groupCheckInternet.visibility = VISIBLE
+        binding.groupCheckInternet.visibility = VISIBLE
     }
 
     private fun hideCheckInternetView() {
-        groupCheckInternet.visibility = GONE
+        binding.groupCheckInternet.visibility = GONE
     }
 
     override fun onRetryClick() {
@@ -82,29 +81,29 @@ class IndiaUpdateActivity : BaseActivity(), IndiaUpdateContract.View {
     }
 
     private fun events() {
-        toolBar.setNavigationOnClickListener { finish() }
+        binding.toolBar.setNavigationOnClickListener { finish() }
 
-        etSearch.addTextChangedListener(object : TextWatcher {
+        binding.etSearch.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 stateAdapter.filterList(s.toString().trim())
                 if (s.toString().isNotEmpty()) {
-                    ivClose.visibility = VISIBLE
+                    binding.ivClose.visibility = VISIBLE
                 } else {
-                    ivClose.visibility = INVISIBLE
+                    binding.ivClose.visibility = INVISIBLE
                 }
             }
 
             override fun afterTextChanged(s: Editable?) {}
         })
 
-        ivClose.setOnClickListener {
-            etSearch.text?.clear()
+        binding.ivClose.setOnClickListener {
+            binding.etSearch.text?.clear()
         }
 
-        btnRetry.setOnClickListener {
+        binding.btnRetry.setOnClickListener {
             presenter.onRetryClick()
         }
     }
