@@ -6,6 +6,20 @@ The GoCorona is an Android application that provides the latest information and 
 - It also provides the COVID-19 statistics from all the Corona affected countries of the world.
 - It gives the set of basic COVID-19 symptoms and precautions.
 
+# Screenshots
+<table style="width:100%">
+  <tr>
+    <th>Dashboard</th>
+    <th>India Updates</th>
+    <th>World Updates</th>
+  </tr>
+  <tr>
+    <td><img src="screenshots/dashboard.png"/></td>
+    <td><img src="screenshots/india_updates.png"/></td> 
+    <td><img src="screenshots/global_updates.png"/></td>
+  </tr>
+</table>
+
 # Built With
 - [Kotlin](https://kotlinlang.org) - Official programming language for Android application development by Google.
 - [Retrofit](https://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java.
