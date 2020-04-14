@@ -2,26 +2,38 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sushanthande.gocorona">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".GCApplication"
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ui.indiaupdate.IndiaUpdateActivity" />
-        <activity android:name=".ui.covidupdate.countrydetails.CountryDetailsActivity" />
+        android:theme="@style/AppTheme"
+        android:fullBackupContent="false">
+        <activity
+            android:name=".ui.indiaupdate.IndiaUpdateActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".ui.covidupdate.countrydetails.CountryDetailsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="fullSensor" />
         <activity android:name=".BaseActivity" />
-        <activity android:name=".ui.covid.WashHandsActivity" />
         <activity
             android:name=".ui.symptoms.SymptomsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="fullSensor" />
-        <activity android:name=".ui.precautions.PrecautionsActivity" />
-        <activity android:name=".ui.covidupdate.CovidUpdateActivity" />
+        <activity
+            android:name=".ui.precautions.PrecautionsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".ui.covidupdate.GlobalUpdateActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".ui.splashscreen.SplashScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -37,10 +49,6 @@
             android:name=".ui.dashboard.DashboardActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="fullSensor" />
-
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-2313347447693043~8362860852" />
     </application>
 
 </manifest>

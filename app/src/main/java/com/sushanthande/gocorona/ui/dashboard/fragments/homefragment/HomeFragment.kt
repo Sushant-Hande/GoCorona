@@ -11,7 +11,7 @@ import com.sushanthande.gocorona.R
 import com.sushanthande.gocorona.adapter.DashboardMenuAdapter
 import com.sushanthande.gocorona.databinding.HomeFragmentBinding
 import com.sushanthande.gocorona.model.DashboardMenu
-import com.sushanthande.gocorona.ui.covidupdate.CovidUpdateActivity
+import com.sushanthande.gocorona.ui.covidupdate.GlobalUpdateActivity
 import com.sushanthande.gocorona.ui.indiaupdate.IndiaUpdateActivity
 import com.sushanthande.gocorona.ui.precautions.PrecautionsActivity
 import com.sushanthande.gocorona.ui.symptoms.SymptomsActivity
@@ -53,7 +53,7 @@ class HomeFragment : Fragment(), HomeFragmentContract.View, DashboardMenuAdapter
             }
 
             DashboardMenu.Menu.WORLD_UPDATES.id -> {
-                startActivity(Intent(activity, CovidUpdateActivity::class.java))
+                startActivity(Intent(activity, GlobalUpdateActivity::class.java))
             }
 
             DashboardMenu.Menu.SYMPTOMS.id -> {

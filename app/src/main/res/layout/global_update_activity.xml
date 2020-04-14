@@ -40,6 +40,20 @@
                 app:titleTextAppearance="@style/ToolBarTextAppearance"
                 app:titleTextColor="@color/black" />
 
+            <ProgressBar
+                android:id="@+id/progress_horizontal"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:indeterminate="true"
+                android:max="100"
+                android:scaleY="5"
+                android:theme="@style/ProgressBarStyle"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolBar" />
+
             <ScrollView
                 android:id="@+id/svParent"
                 android:layout_width="match_parent"
@@ -47,7 +61,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/toolBar">
+                app:layout_constraintTop_toBottomOf="@id/progress_horizontal">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/childLayout"
@@ -89,7 +103,6 @@
                             <com.google.android.material.textview.MaterialTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="3dp"
                                 android:fontFamily="@font/montserrat"
                                 android:gravity="center"
                                 android:text="@string/total_cases"
@@ -145,7 +158,6 @@
                             <com.google.android.material.textview.MaterialTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="3dp"
                                 android:fontFamily="@font/montserrat"
                                 android:gravity="center"
                                 android:text="@string/recovered"
@@ -192,7 +204,6 @@
                             <com.google.android.material.textview.MaterialTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="3dp"
                                 android:fontFamily="@font/montserrat"
                                 android:gravity="center"
                                 android:text="@string/deaths"
@@ -261,17 +272,6 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </ScrollView>
-
-            <include
-                android:id="@+id/layoutShimmer"
-                layout="@layout/layout_shimmer"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/toolBar" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvCheckInternet"

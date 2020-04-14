@@ -29,7 +29,7 @@ class CountryDataAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(countryDataModelList[position], countryClickListener)
+        holder.bind(filteredDataList[position], countryClickListener)
     }
 
     override fun getItemCount() = filteredDataList.size

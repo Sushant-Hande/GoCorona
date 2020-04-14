@@ -11,8 +11,6 @@ import com.sushanthande.gocorona.R
 import com.sushanthande.gocorona.adapter.StateAdapter
 import com.sushanthande.gocorona.databinding.IndiaUpdateActivityBinding
 import com.sushanthande.gocorona.model.StateModel
-import kotlinx.android.synthetic.main.layout_shimmer.view.*
-
 
 /**
  *Created by Sushant Hande on 11-04-2020
@@ -36,17 +34,6 @@ class IndiaUpdateActivity : BaseActivity(), IndiaUpdateContract.View {
         events()
     }
 
-    override fun setIndiaUpdate(stateModelList: ArrayList<StateModel>) {
-        val totalObject = stateModelList[0]
-        binding.total = totalObject
-        stateModelList.removeAt(0)
-        stateAdapter = StateAdapter(stateModelList)
-        binding. rvState.adapter = stateAdapter
-        binding.rvState.layoutManager = LinearLayoutManager(this)
-        showParentView()
-        hideShimmerView()
-    }
-
     override fun showParentView() {
         binding.parentLayout.visibility = VISIBLE
     }
@@ -55,14 +42,13 @@ class IndiaUpdateActivity : BaseActivity(), IndiaUpdateContract.View {
         binding.parentLayout.visibility = GONE
     }
 
-    override fun showShimmerView() {
-        binding.layoutShimmer.visibility = VISIBLE
-        binding.layoutShimmer.shimmerContainer.startShimmer()
+    override fun showProgressBar() {
+        binding.progressHorizontal.visibility = VISIBLE
+        binding.progressHorizontal.animate()
     }
 
-    override fun hideShimmerView() {
-        binding.layoutShimmer.shimmerContainer.stopShimmer()
-        binding.layoutShimmer.visibility = GONE
+    override fun hideProgressBar() {
+        binding.progressHorizontal.visibility = GONE
     }
 
     override fun showCheckInternetView() {
@@ -78,6 +64,15 @@ class IndiaUpdateActivity : BaseActivity(), IndiaUpdateContract.View {
             hideCheckInternetView()
             presenter.getIndiaUpdate()
         }
+    }
+
+    override fun setIndiaUpdate(stateModelList: ArrayList<StateModel>) {
+        val totalObject = stateModelList[0]
+        binding.total = totalObject
+        stateModelList.removeAt(0)
+        stateAdapter = StateAdapter(stateModelList)
+        binding.rvState.adapter = stateAdapter
+        binding.rvState.layoutManager = LinearLayoutManager(this)
     }
 
     private fun events() {

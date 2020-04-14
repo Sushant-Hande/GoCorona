@@ -8,13 +8,13 @@ import com.sushanthande.gocorona.model.StateModel
 interface IndiaUpdateContract {
 
     interface View {
-        fun setIndiaUpdate(stateModelList: ArrayList<StateModel>)
         fun showParentView()
         fun hideParentView()
-        fun showShimmerView()
-        fun hideShimmerView()
+        fun showProgressBar()
+        fun hideProgressBar()
         fun showCheckInternetView()
         fun onRetryClick()
+        fun setIndiaUpdate(stateModelList: ArrayList<StateModel>)
     }
 
     interface Presenter {

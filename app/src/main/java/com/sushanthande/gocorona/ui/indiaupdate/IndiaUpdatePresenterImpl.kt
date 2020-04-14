@@ -11,16 +11,18 @@ class IndiaUpdatePresenterImpl(val view: IndiaUpdateContract.View) : IndiaUpdate
 
     override fun getIndiaUpdate() {
         view.hideParentView()
-        view.showShimmerView()
+        view.showProgressBar()
         val apiRequest = ApiClient.createIndiaService(ApiRequests.India::class.java)
         val call = apiRequest?.getData()
         call?.enqueue(RetrofitCallback(object : CustomCallback {
             override fun onSuccess(response: Response<ApiResponse>) {
+                view.showParentView()
+                view.hideProgressBar()
                 view.setIndiaUpdate(response.body().stateList as ArrayList<StateModel>)
             }
 
             override fun onFailed(error: String) {
-                view.hideShimmerView()
+                view.hideProgressBar()
                 view.hideParentView()
                 view.showCheckInternetView()
             }

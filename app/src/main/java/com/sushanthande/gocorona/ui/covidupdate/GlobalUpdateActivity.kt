@@ -10,34 +10,67 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sushanthande.gocorona.BaseActivity
 import com.sushanthande.gocorona.R
 import com.sushanthande.gocorona.adapter.CountryDataAdapter
-import com.sushanthande.gocorona.databinding.CovidUpdateActivityBinding
+import com.sushanthande.gocorona.databinding.GlobalUpdateActivityBinding
 import com.sushanthande.gocorona.model.CountryDataModel
 import com.sushanthande.gocorona.model.GlobalDataModel
 import com.sushanthande.gocorona.ui.covidupdate.countrydetails.CountryDetailsActivity
-import kotlinx.android.synthetic.main.layout_shimmer.view.*
 
 /**
  *Created by Sushant Hande on 07-04-2020
  */
-class CovidUpdateActivity : BaseActivity(), CovidUpdateContract.View,
+class GlobalUpdateActivity : BaseActivity(), CovidUpdateContract.View,
     CountryDataAdapter.CountryClickListener {
 
-    private lateinit var binding: CovidUpdateActivityBinding
+    private lateinit var binding: GlobalUpdateActivityBinding
     private lateinit var presenter: CovidUpdateContract.Presenter
     private lateinit var countryDataAdapter: CountryDataAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.covid_update_activity)
+        binding = DataBindingUtil.setContentView(this, R.layout.global_update_activity)
         setSupportActionBar(binding.toolBar)
         presenter = CovidUpdatePresenterImpl(this)
         if (isNetworkAvailable(this)) {
-            getCovidUpdate()
+            presenter.getCovidUpdate()
+            presenter.getAllCountryData()
         } else {
-            binding.svParent.visibility = GONE
-            binding.groupCheckInternet.visibility = GONE
+            hideParentView()
+            showCheckInternetView()
         }
         events()
+    }
+
+    override fun showParentView() {
+        binding.svParent.visibility = VISIBLE
+    }
+
+    override fun hideParentView() {
+        binding.svParent.visibility = GONE
+    }
+
+    override fun hideProgressBar() {
+        binding.progressHorizontal.visibility = GONE
+    }
+
+    override fun showProgressBar() {
+        binding.progressHorizontal.visibility = VISIBLE
+        binding.progressHorizontal.animate()
+    }
+
+    override fun showCheckInternetView() {
+        binding.groupCheckInternet.visibility = VISIBLE
+    }
+
+    override fun onRetryClick() {
+        if (isNetworkAvailable(this)) {
+            presenter.getCovidUpdate()
+            presenter.getAllCountryData()
+            hideCheckInternetView()
+        }
+    }
+
+    private fun hideCheckInternetView() {
+        binding.groupCheckInternet.visibility = GONE
     }
 
     private fun events() {
@@ -66,24 +99,13 @@ class CovidUpdateActivity : BaseActivity(), CovidUpdateContract.View,
         binding.btnRetry.setOnClickListener {
             if (isNetworkAvailable(this)) {
                 binding.groupCheckInternet.visibility = GONE
-                getCovidUpdate()
+                presenter.getCovidUpdate()
             }
         }
     }
 
-    fun getCovidUpdate() {
-        binding.svParent.visibility = GONE
-        binding.layoutShimmer.visibility = VISIBLE
-        binding.layoutShimmer.shimmerContainer.animate()
-        presenter.getCovidUpdate()
-        presenter.getAllCountryData()
-    }
-
     override fun setCovidUpdate(globalDataModel: GlobalDataModel) {
-        binding.svParent.visibility = VISIBLE
-        binding.layoutShimmer.shimmerContainer.stopShimmer()
-        binding.layoutShimmer.shimmerContainer.visibility = GONE
-        binding.childLayout.visibility = VISIBLE
+        binding.globalDataModel = globalDataModel
     }
 
     override fun setAllCountryData(countryDataList: List<CountryDataModel>) {
@@ -92,10 +114,8 @@ class CovidUpdateActivity : BaseActivity(), CovidUpdateContract.View,
         binding.rcCountryData.adapter = countryDataAdapter
     }
 
-    override fun onGetDataFailed() {
-        binding.svParent.visibility = VISIBLE
-        binding.layoutShimmer.shimmerContainer.stopShimmer()
-        binding.layoutShimmer.shimmerContainer.visibility = GONE
+    override fun ongetGlobalDataSuccess() {
+        presenter.getAllCountryData()
     }
 
     override fun onCountryClick(countryDataModel: CountryDataModel) {

@@ -9,9 +9,15 @@ import com.sushanthande.gocorona.model.GlobalDataModel
 interface CovidUpdateContract {
 
     interface View {
+        fun showParentView()
+        fun hideParentView()
+        fun showProgressBar()
+        fun hideProgressBar()
+        fun showCheckInternetView()
+        fun onRetryClick()
         fun setCovidUpdate(globalDataModel: GlobalDataModel)
         fun setAllCountryData(countryDataList: List<CountryDataModel>)
-        fun onGetDataFailed()
+        fun ongetGlobalDataSuccess()
     }
 
     interface Presenter {

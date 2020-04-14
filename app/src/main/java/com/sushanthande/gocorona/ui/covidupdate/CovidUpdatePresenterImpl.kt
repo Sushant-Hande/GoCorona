@@ -14,6 +14,8 @@ import retrofit2.Response
 class CovidUpdatePresenterImpl(val view: CovidUpdateContract.View) : CovidUpdateContract.Presenter {
 
     override fun getCovidUpdate() {
+        view.hideParentView()
+        view.showProgressBar()
         val apiRequest = ApiClient.createGlobalService(ApiRequests.Global::class.java)
         val call = apiRequest?.getGlobalData()
         call?.enqueue(object : Callback<GlobalDataModel> {
@@ -24,11 +26,13 @@ class CovidUpdatePresenterImpl(val view: CovidUpdateContract.View) : CovidUpdate
                 if (response.isSuccessful) {
                     val globalDataModel = response.body()
                     view.setCovidUpdate(globalDataModel)
+                    view.ongetGlobalDataSuccess()
                 }
             }
 
             override fun onFailure(call: Call<GlobalDataModel>, t: Throwable) {
-                view.onGetDataFailed()
+                view.hideProgressBar()
+                view.showCheckInternetView()
             }
         })
     }
@@ -43,11 +47,14 @@ class CovidUpdatePresenterImpl(val view: CovidUpdateContract.View) : CovidUpdate
             ) {
                 if (response.isSuccessful) {
                     view.setAllCountryData(response.body())
+                    view.hideProgressBar()
+                    view.showParentView()
                 }
             }
 
             override fun onFailure(call: Call<List<CountryDataModel>>?, t: Throwable?) {
-                view.onGetDataFailed()
+                view.hideProgressBar()
+                view.showCheckInternetView()
             }
         })
     }
