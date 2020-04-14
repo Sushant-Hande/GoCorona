@@ -1,26 +1,31 @@
 package com.sushanthande.gocorona.ui.covidupdate.countrydetails
 
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.BindingAdapter
+import androidx.databinding.DataBindingUtil
 import coil.api.load
 import com.sushanthande.gocorona.R
+import com.sushanthande.gocorona.databinding.CountryDetailsActivityBinding
 import com.sushanthande.gocorona.model.CountryDataModel
-import kotlinx.android.synthetic.main.country_details_activity.*
 
 /**
  *Created by Sushant Hande on 07-04-2020
  */
 class CountryDetailsActivity : AppCompatActivity(), CountryDetailsContract.View {
 
+    private lateinit var binding: CountryDetailsActivityBinding
     private var countryDataModel: CountryDataModel? = null
     lateinit var presenter: CountryDetailsContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.country_details_activity)
-        setSupportActionBar(toolBar)
+        binding = DataBindingUtil.setContentView(this, R.layout.country_details_activity)
+        setSupportActionBar(binding.toolBar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-        toolBar.setNavigationOnClickListener { finish() }
+        binding.toolBar.setNavigationOnClickListener { finish() }
         presenter = CountryDetailsPresenterImpl(this)
         countryDataModel = intent.getParcelableExtra(COUNTRY_OBJECT)
         countryDataModel?.let {
@@ -29,19 +34,62 @@ class CountryDetailsActivity : AppCompatActivity(), CountryDetailsContract.View 
     }
 
     override fun setCountryDetails(countryDataModel: CountryDataModel) {
-        countryDataModel.let {
-            ivFlag.load(it.country)
-            tvTotalCases.append(it.cases.toString())
-            tvTodayCases.append(it.todayCases.toString())
-            tvDeaths.append(it.deaths.toString())
-            tvTodayDeaths.append(it.todayDeaths.toString())
-            tvActive.append(it.active.toString())
-            tvCritical.append(it.critical.toString())
-            tvRecovered.append(it.recovered.toString())
+        binding.countryDataModel = countryDataModel
+        binding.countryDataModel?.let {
+            binding.ivFlag.load(it.country)
         }
     }
 
     companion object {
         const val COUNTRY_OBJECT = "countryObject"
     }
+}
+
+@BindingAdapter("imageUrl")
+fun ImageView.loadImage(imageUrl: String?) {
+    imageUrl?.let {
+        this.load(imageUrl)
+    }
+}
+
+@BindingAdapter("totalCases")
+fun TextView.setTotalCases(totalCases: String?) {
+    this.text =
+        if (totalCases.isNullOrEmpty()) "" else "${this.context.getString(R.string.total_cases)} $totalCases"
+}
+
+@BindingAdapter("new")
+fun TextView.setNewCases(new: String?) {
+    this.text =
+        if (new.isNullOrEmpty()) "" else "${this.context.getString(R.string.New)} $new"
+}
+
+@BindingAdapter("deaths")
+fun TextView.setDeaths(deaths: String?) {
+    this.text =
+        if (deaths.isNullOrEmpty()) "" else "${this.context.getString(R.string.deaths)} $deaths"
+}
+
+@BindingAdapter("todayDeaths")
+fun TextView.setTodayDeaths(todayDeaths: String?) {
+    this.text =
+        if (todayDeaths.isNullOrEmpty()) "" else "${this.context.getString(R.string.today_deaths)} $todayDeaths"
+}
+
+@BindingAdapter("active")
+fun TextView.setActiveCases(active: String?) {
+    this.text =
+        if (active.isNullOrEmpty()) "" else "${this.context.getString(R.string.active)} $active"
+}
+
+@BindingAdapter("critical")
+fun TextView.setCriticalCases(critical: String?) {
+    this.text =
+        if (critical.isNullOrEmpty()) "" else "${this.context.getString(R.string.critical)} $critical"
+}
+
+@BindingAdapter("recovered")
+fun TextView.setRecoveredCases(recovered: String?) {
+    this.text =
+        if (recovered.isNullOrEmpty()) "" else "${this.context.getString(R.string.recovered)} $recovered"
 }
