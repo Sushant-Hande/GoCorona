@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">GoCorona</string>
+    <string name="share">Share</string>
+    <string name="home">होम</string>
+    <string name="notifications">Notification</string>
+    <string name="setting">सेटींग</string>
+    <string name="language">भाषा</string>
+    <string name="news">न्यूज</string>
+    <string name="global_updates">ग्लोबल अपडेट्स</string>
+    <string name="covid19">COVID&#8211;19</string>
+    <string name="no_notifications_available">No notifications available....</string>
+    <string name="select_langugae">भाषा चूने</string>
+    <string name="ok">ठीक</string>
+    <string name="cancel">Cancel</string>
+
+    <!--Precaution Strings-->
+    <string name="precautions">सावधानियां</string>
+    <string name="precaution1">लोगों से दूर रहें और सामाजिक दूरी बनाए रखें.</string>
+    <string name="precaution2">कम से कम 20 सेकंड के लिए, अपने हाथों को साबुन से बार-बार धोएं.</string>
+    <string name="precaution3">अपनी नाक, आंख और चेहरे को बार-बार छूने से बचें</string>
+    <string name="precaution4">अगर आप बीमार महसूस करते हैं तो घर पर रहें.</string>
+    <string name="precaution5">छींकते और खांसते समय रूमाल का इस्तेमाल करें.</string>
+
+    <!--Symptoms String-->
+    <string name="symptoms">लक्षण</string>
+    <string name="symptoms_heading">COVID&#8211;19 लक्षण हल्के से लेकर गंभीर तक होते हैं.
+        संक्रमण के बाद लक्षण दिखने में 2&#8211;14 दिन लगते हैं।. नीचे दिए गए लक्षणों में शामिल हो सकते हैं:</string>
+    <string name="symptom1">बुखार</string>
+    <string name="symptom2">खांसी</string>
+    <string name="symptom3">सांस की तकलीफ या सांस लेने में कठिनाई</string>
+    <string name="symptom4">थकान</string>
+    <string name="symptom5">दर्द</string>
+    <string name="symptom6">बहती नाक</string>
+    <string name="symptom7">गले में खरास</string>
+    <string name="total_cases">कुल मामले</string>
+    <string name="deaths">मृत्यु</string>
+    <string name="recovered">स्वस्थ होनेवाले</string>
+    <string name="search_by_country">देश खोजे</string>
+
+    <!--Share Strings-->
+    <string name="share_app">दुनिया के विभिन्न देशों से कोरोना के बारे में नवीनतम जानकारी प्राप्त करने के लिए GoCorona एप्लिकेशन डाउनलोड करें.
+    GoCorona एप्लिकेशन अंग्रेजी, मराठी और हिंदी भाषाओं में उपलब्ध है।</string>
+    <string name="New">New</string>
+    <string name="country_details">Country Details</string>
+    <string name="active">Active</string>
+    <string name="critical">गंभीर</string>
+    <string name="today_deaths">आज मृत्यू</string>
+    <string name="check_internet_connection">Check internet connection and try again</string>
+    <string name="retry">Retry</string>
+    <string name="india_updates">इंडिया अपडेट्स</string>
+    <string name="search_by_state">राज्य खोजे</string>
+
+</resources>
