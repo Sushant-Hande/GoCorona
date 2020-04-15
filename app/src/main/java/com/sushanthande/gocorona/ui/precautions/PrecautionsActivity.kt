@@ -7,7 +7,6 @@ import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sushanthande.gocorona.BaseActivity
-import com.sushanthande.gocorona.BuildConfig
 import com.sushanthande.gocorona.R
 import com.sushanthande.gocorona.adapter.CommonDataAdapter
 import com.sushanthande.gocorona.databinding.PrecautionsActivityBinding
@@ -95,10 +94,6 @@ class PrecautionsActivity : BaseActivity(), PrecautionsContract.View {
                         )}\n4.${getString(R.string.precaution4)}\n5.${getString(
                             R.string.precaution5
                         )}\n\n"
-                    shareMessage =
-                        """
-                     ${shareMessage}Shared by https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}
-                    """.trimIndent()
                     putExtra(Intent.EXTRA_TEXT, shareMessage)
                 }
                 startActivity(Intent.createChooser(shareIntent, "choose one"))

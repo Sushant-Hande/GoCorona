@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.sushanthande.gocorona.BuildConfig
 import com.sushanthande.gocorona.R
 import com.sushanthande.gocorona.adapter.ViewPagerAdapter
 import com.sushanthande.gocorona.databinding.DashboardActivityBinding
@@ -53,10 +52,6 @@ class DashboardActivity : AppCompatActivity(),
                     type = "text/plain"
                     putExtra(Intent.EXTRA_SUBJECT, R.string.app_name)
                     var shareMessage = "\n${R.string.share_app}\n\n"
-                    shareMessage =
-                        """
-                    ${shareMessage}Shared by https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}
-                    """.trimIndent()
                     putExtra(Intent.EXTRA_TEXT, shareMessage)
                 }
                 startActivity(Intent.createChooser(shareIntent, "choose one"))

@@ -7,7 +7,6 @@ import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sushanthande.gocorona.BaseActivity
-import com.sushanthande.gocorona.BuildConfig
 import com.sushanthande.gocorona.R
 import com.sushanthande.gocorona.adapter.CommonDataAdapter
 import com.sushanthande.gocorona.databinding.SymptomsActivityBinding
@@ -110,10 +109,6 @@ class SymptomsActivity : BaseActivity(), SymptomsContract.View {
                         )}\n6.${getString(
                             R.string.symptom6
                         )}\n7.${getString(R.string.symptom7)}\n\n"
-                    shareMessage =
-                        """
-                    ${shareMessage}Shared by https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}
-                    """.trimIndent()
                     putExtra(Intent.EXTRA_TEXT, shareMessage)
                 }
                 startActivity(Intent.createChooser(shareIntent, "choose one"))
