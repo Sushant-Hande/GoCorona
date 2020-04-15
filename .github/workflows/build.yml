@@ -1,4 +1,5 @@
 name: CI
+
 on:
   pull_request:
     branches:
@@ -18,10 +19,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-
-      - name: Grant Permission to Execute
-        run: chmod +x gradlew
-
       - name: Unit tests
         run: bash ./gradlew test --stacktrace
 
@@ -35,10 +32,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-
-      - name: Grant Permission to Execute
-        run: chmod +x gradlew
-
       - name: Build debug APK
         run: bash ./gradlew assembleDebug --stacktrace
       - name: Upload APK
