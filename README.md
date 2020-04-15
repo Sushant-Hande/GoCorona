@@ -5,6 +5,7 @@ The GoCorona is an Android application that provides the latest information and 
 - It provides the state wise COVID-19 statistics in India.
 - It also provides the COVID-19 statistics from all the Corona affected countries of the world.
 - It gives the set of basic COVID-19 symptoms and precautions.
+- This application is available in English, Hindi and Marathi languages.
 
 # Screenshots
 <table style="width:100%">
