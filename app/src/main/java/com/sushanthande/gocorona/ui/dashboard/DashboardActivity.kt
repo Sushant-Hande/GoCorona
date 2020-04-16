@@ -51,7 +51,7 @@ class DashboardActivity : AppCompatActivity(),
                 val shareIntent = Intent(Intent.ACTION_SEND).apply {
                     type = "text/plain"
                     putExtra(Intent.EXTRA_SUBJECT, R.string.app_name)
-                    var shareMessage = "\n${R.string.share_app}\n\n"
+                    val shareMessage = "\n${getString(R.string.share_app)}\n"
                     putExtra(Intent.EXTRA_TEXT, shareMessage)
                 }
                 startActivity(Intent.createChooser(shareIntent, "choose one"))

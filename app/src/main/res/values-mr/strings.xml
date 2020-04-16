@@ -38,7 +38,8 @@
     <string name="search_by_country">देश शोधा</string>
 
     <!--Share Strings-->
-    <string name="share_app">जगातील विविध देशांमधील, कोरोनाविषयी नवीनतम माहिती मिळविण्यासाठी GoCorona अॅप डाउनलोड करा. GoCorona अॅप, इंग्रजी, मराठी आणि हिंदी भाषांमध्ये उपलब्ध आहे.</string>
+    <string name="share_app">जगातील विविध देशांमधील, कोरोनाविषयी(COVID-19) नवीनतम माहिती मिळविण्यासाठी GoCorona अॅप डाउनलोड करा. GoCorona अॅप, इंग्रजी, मराठी आणि हिंदी भाषांमध्ये उपलब्ध आहे.
+    \n\n Download Link:- \nhttp://fourthquadrant.comli.com/androidapp/gocorona/gocorona.apk</string>
     <string name="New">New</string>
     <string name="country_details">Country Details</string>
     <string name="active">Active</string>
@@ -48,5 +49,6 @@
     <string name="retry">Retry</string>
     <string name="india_updates">इंडिया अपडेट्स</string>
     <string name="search_by_state">राज्य शोधा</string>
+    <string name="v">v</string>
 
 </resources>
