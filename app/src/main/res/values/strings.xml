@@ -38,9 +38,11 @@
     <string name="search_by_country">Search by country</string>
 
     <!--Share Strings-->
-    <string name="share_app">Download the GoCorona application to get the latest information about the Corona
-        Virus from the different countries of the world. It also helps you with Symptoms, Precautions and
-        other important information. GoCorona application is available in english, marathi and hindi languages.</string>
+    <string name="share_app">I recommend the GoCorona Android application to get the latest information and updates about the Corona Virus(COVID-19),
+        from India and all Corona affected countries of the world. \nIt also helps you with Symptoms, Precautions and
+        other important information. \n\nGoCorona application is available in english, marathi and hindi languages.
+        \n\n Download Link:- \nhttp://fourthquadrant.comli.com/androidapp/gocorona/gocorona.apk
+    </string>
     <string name="New">New</string>
     <string name="country_details">Country Details</string>
     <string name="active">Active</string>
@@ -50,5 +52,6 @@
     <string name="retry">Retry</string>
     <string name="india_updates">India Updates</string>
     <string name="search_by_state">Search by state</string>
+    <string name="v">v</string>
 
 </resources>

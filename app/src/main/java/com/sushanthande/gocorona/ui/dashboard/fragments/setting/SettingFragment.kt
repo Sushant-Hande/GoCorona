@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.pixplicity.easyprefs.library.Prefs
+import com.sushanthande.gocorona.BuildConfig
 import com.sushanthande.gocorona.LanguageUtil
 import com.sushanthande.gocorona.R
 import com.sushanthande.gocorona.databinding.SettingFragmentBinding
@@ -35,6 +36,7 @@ class SettingFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.cvLanguage.setOnClickListener(this)
+        binding.tvVersionName.append(BuildConfig.VERSION_NAME)
     }
 
     override fun onClick(v: View) {
