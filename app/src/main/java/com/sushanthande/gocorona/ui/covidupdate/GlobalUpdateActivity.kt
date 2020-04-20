@@ -32,7 +32,6 @@ class GlobalUpdateActivity : BaseActivity(), CovidUpdateContract.View,
         presenter = CovidUpdatePresenterImpl(this)
         if (isNetworkAvailable(this)) {
             presenter.getCovidUpdate()
-            presenter.getAllCountryData()
         } else {
             hideParentView()
             showCheckInternetView()
