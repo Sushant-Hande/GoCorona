@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  *Created by Sushant Hande on 25-03-2020
  */
 object ApiClient {
-    private const val BASE_API_URL = "https://corona.lmao.ninja/"
+    private const val BASE_API_URL = "https://corona.lmao.ninja/v2/"
     private const val BASE_API_INDIA_URL = "https://api.covid19india.org/"
     private var globalRetrofitClient: Retrofit? = null
     private var indiaRetrofitClient: Retrofit? = null
