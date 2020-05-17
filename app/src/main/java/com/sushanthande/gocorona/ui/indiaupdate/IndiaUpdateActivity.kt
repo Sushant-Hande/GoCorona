@@ -102,4 +102,9 @@ class IndiaUpdateActivity : BaseActivity(), IndiaUpdateContract.View {
             presenter.onRetryClick()
         }
     }
+
+    override fun onDestroy() {
+        presenter.clear()
+        super.onDestroy()
+    }
 }

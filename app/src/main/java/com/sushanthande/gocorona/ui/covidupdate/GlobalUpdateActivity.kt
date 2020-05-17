@@ -31,7 +31,7 @@ class GlobalUpdateActivity : BaseActivity(), CovidUpdateContract.View,
         setSupportActionBar(binding.toolBar)
         presenter = CovidUpdatePresenterImpl(this)
         if (isNetworkAvailable(this)) {
-            presenter.getCovidUpdate()
+            presenter.getGlobalAndAllCountryUpdates()
         } else {
             hideParentView()
             showCheckInternetView()
@@ -62,8 +62,7 @@ class GlobalUpdateActivity : BaseActivity(), CovidUpdateContract.View,
 
     override fun onRetryClick() {
         if (isNetworkAvailable(this)) {
-            presenter.getCovidUpdate()
-            presenter.getAllCountryData()
+            presenter.getGlobalAndAllCountryUpdates()
             hideCheckInternetView()
         }
     }
@@ -98,7 +97,7 @@ class GlobalUpdateActivity : BaseActivity(), CovidUpdateContract.View,
         binding.btnRetry.setOnClickListener {
             if (isNetworkAvailable(this)) {
                 binding.groupCheckInternet.visibility = GONE
-                presenter.getCovidUpdate()
+                presenter.getGlobalAndAllCountryUpdates()
             }
         }
     }
@@ -113,13 +112,14 @@ class GlobalUpdateActivity : BaseActivity(), CovidUpdateContract.View,
         binding.rcCountryData.adapter = countryDataAdapter
     }
 
-    override fun ongetGlobalDataSuccess() {
-        presenter.getAllCountryData()
-    }
-
     override fun onCountryClick(countryDataModel: CountryDataModel) {
         val intent = Intent(this, CountryDetailsActivity::class.java)
         intent.putExtra(CountryDetailsActivity.COUNTRY_OBJECT, countryDataModel)
         startActivity(intent)
+    }
+
+    override fun onDestroy() {
+        presenter.clear()
+        super.onDestroy()
     }
 }

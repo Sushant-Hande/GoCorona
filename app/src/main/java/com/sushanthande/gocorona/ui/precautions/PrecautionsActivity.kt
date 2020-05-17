@@ -82,7 +82,7 @@ class PrecautionsActivity : BaseActivity(), PrecautionsContract.View {
                         Intent.EXTRA_TITLE,
                         R.string.app_name
                     )
-                    var shareMessage =
+                    val shareMessage =
                         "\n${getString(R.string.covid19)}${getString(
                             R.string.precautions
                         )}\n1.${getString(

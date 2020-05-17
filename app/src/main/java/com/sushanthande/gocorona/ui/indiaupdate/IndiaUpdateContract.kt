@@ -20,5 +20,6 @@ interface IndiaUpdateContract {
     interface Presenter {
         fun getIndiaUpdate()
         fun onRetryClick()
+        fun clear()
     }
 }

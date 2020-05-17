@@ -17,11 +17,10 @@ interface CovidUpdateContract {
         fun onRetryClick()
         fun setCovidUpdate(globalDataModel: GlobalDataModel)
         fun setAllCountryData(countryDataList: List<CountryDataModel>)
-        fun ongetGlobalDataSuccess()
     }
 
     interface Presenter {
-        fun getCovidUpdate()
-        fun getAllCountryData()
+        fun getGlobalAndAllCountryUpdates()
+        fun clear()
     }
 }

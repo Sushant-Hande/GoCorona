@@ -3,6 +3,7 @@ package com.sushanthande.gocorona.network
 import com.sushanthande.gocorona.model.CountryDataModel
 import com.sushanthande.gocorona.model.GlobalDataModel
 import com.sushanthande.gocorona.model.StateModel
+import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -13,15 +14,15 @@ interface ApiRequests {
 
     interface Global {
         @GET("all")
-        fun getGlobalData(): Call<GlobalDataModel>
+        fun getGlobalData(): Observable<GlobalDataModel>
 
         @GET("countries?sort=country")
-        fun getAllCountryData(): Call<List<CountryDataModel>>
+        fun getAllCountryData(): Observable<List<CountryDataModel>>
     }
 
     interface India {
         @GET("data.json")
-        fun getData():Call<ApiResponse>
+        fun getData():Observable<ApiResponse>
     }
 
 }
