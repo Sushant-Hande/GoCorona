@@ -23,6 +23,7 @@ The GoCorona is an Android application that provides the latest information and 
 # Built With
 - [Kotlin](https://kotlinlang.org) - Official programming language for Android application development by Google.
 - [Retrofit](https://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java.
+- [RxJava 2](https://github.com/ReactiveX/RxJava/tree/2.x) - A library for composing asynchronous and event-based programs using observable sequences for the JVM.  
 - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) - A set of Jetpack components which help you to design robust, testable and maintainable apps
   - [Data Binding](https://developer.android.com/topic/libraries/data-binding) - A support library that allows to bind UI components in layouts to data sources in app using a declarative format rather than programmatically. 
 - [Android Material Components](https://github.com/material-components/material-components-android) - The material UI components for Android, designed and developed by Google.
