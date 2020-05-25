@@ -2,9 +2,7 @@ package com.sushanthande.gocorona.network
 
 import com.sushanthande.gocorona.model.CountryDataModel
 import com.sushanthande.gocorona.model.GlobalDataModel
-import com.sushanthande.gocorona.model.StateModel
 import io.reactivex.Observable
-import retrofit2.Call
 import retrofit2.http.GET
 
 /**

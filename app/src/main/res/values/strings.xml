@@ -2,13 +2,11 @@
     <string name="app_name">GoCorona</string>
     <string name="share">Share</string>
     <string name="home">Home</string>
-    <string name="notifications">Notification</string>
     <string name="setting">Setting</string>
     <string name="language">Language</string>
     <string name="news">News</string>
     <string name="global_updates">Global Updates</string>
     <string name="covid19">COVID&#8211;19</string>
-    <string name="no_notifications_available">No notifications available....</string>
     <string name="select_langugae">Select Language</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
@@ -44,7 +42,6 @@
         \n\n Download Link:- \nhttp://fourthquadrant.comli.com/androidapp/gocorona/gocorona.apk
     </string>
     <string name="New">New</string>
-    <string name="country_details">Country Details</string>
     <string name="active">Active</string>
     <string name="critical">Critical</string>
     <string name="today_deaths">Today Deaths</string>
@@ -53,5 +50,12 @@
     <string name="india_updates">India Updates</string>
     <string name="search_by_state">Search by state</string>
     <string name="v">v</string>
-
+    <string name="next" translatable="false">Next</string>
+    <string name="start" translatable="false">Start</string>
+    <string name="wear_mask" translatable="false">Wear Mask</string>
+    <string name="wear_mask_desc" translatable="false">While stepping out, wear mask and cover your face to stay away from the COVID-19 infection.</string>
+    <string name="work_from_home" translatable="false">Work From Home</string>
+    <string name="work_from_home_desc" translatable="false">Working from home will create the safe and happy workplace for you.</string>
+    <string name="consult_with_doctor" translatable="false">Consult With Doctor</string>
+    <string name="consult_with_doctor_desc" translatable="false">Consult with doctor if you are feeling sick, it can ensure safety of your and other\'s health too.</string>
 </resources>

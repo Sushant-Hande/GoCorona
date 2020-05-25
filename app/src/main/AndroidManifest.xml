@@ -7,12 +7,16 @@
 
     <application
         android:name=".GCApplication"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
         android:icon="@drawable/ic_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:fullBackupContent="false">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.onboarding.OnBoardingActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".ui.indiaupdate.IndiaUpdateActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

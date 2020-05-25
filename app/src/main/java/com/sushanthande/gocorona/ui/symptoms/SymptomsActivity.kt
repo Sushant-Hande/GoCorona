@@ -95,7 +95,7 @@ class SymptomsActivity : BaseActivity(), SymptomsContract.View {
                         Intent.EXTRA_SUBJECT,
                         R.string.app_name
                     )
-                    var shareMessage =
+                    val shareMessage =
                         "${getString(R.string.covid19)}${getString(
                             R.string.symptoms
                         )}\n1.${getString(

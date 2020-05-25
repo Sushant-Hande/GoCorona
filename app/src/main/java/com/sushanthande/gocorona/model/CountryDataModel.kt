@@ -31,8 +31,7 @@ data class CountryDataModel(
         parcel.readLong(),
         parcel.readValue(Float::class.java.classLoader) as? Float,
         parcel.readValue(Float::class.java.classLoader) as? Float
-    ) {
-    }
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(country)
