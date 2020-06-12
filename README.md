@@ -32,7 +32,7 @@ The GoCorona is an Android application that provides the latest information and 
 # Credits
 Thanks to [Postman CORONAVIRUS COVID19 API](https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest) and [COVID19India.org](https://github.com/covid19india/api) for open-source API.
 
-Lincense
+License
 ========
 
     Copyright 2020 Sushant Hande
