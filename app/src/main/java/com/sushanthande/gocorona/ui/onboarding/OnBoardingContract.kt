@@ -14,15 +14,20 @@
  * limitations under the License.
  */
 
-package com.sushanthande.gocorona.ui.dashboard
+package com.sushanthande.gocorona.ui.onboarding
+
+import com.sushanthande.gocorona.model.OnBoardingModel
 
 /**
- *Created by Sushant Hande on 25-03-2020
+ *Created by Sushant Hande on 18-05-2020
  */
-class DashboardPresenterImpl(val view: DashboardContract.View) :
-    DashboardContract.Presenter {
+interface OnBoardingContract {
 
-    override fun setScreenDetails() {
-        view.setScreenDetails()
+    interface View {
+        fun setOnBoardingData(onBoardingList: List<OnBoardingModel>)
+    }
+
+    interface Presenter {
+        fun setOnBoardingData(onBoardingList: List<OnBoardingModel>)
     }
 }

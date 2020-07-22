@@ -14,15 +14,11 @@
  * limitations under the License.
  */
 
-package com.sushanthande.gocorona.ui.dashboard
+package com.sushanthande.gocorona.model
+
+import android.graphics.drawable.Drawable
 
 /**
- *Created by Sushant Hande on 25-03-2020
+ *Created by Sushant Hande on 18-05-2020
  */
-class DashboardPresenterImpl(val view: DashboardContract.View) :
-    DashboardContract.Presenter {
-
-    override fun setScreenDetails() {
-        view.setScreenDetails()
-    }
-}
+data class OnBoardingModel(val image: Drawable, val title: String, val description: String)

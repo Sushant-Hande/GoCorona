@@ -14,15 +14,12 @@
  * limitations under the License.
  */
 
-package com.sushanthande.gocorona.ui.dashboard
+package com.sushanthande.gocorona.model
 
 /**
- *Created by Sushant Hande on 25-03-2020
+ *Created by Sushant Hande on 16-05-2020
  */
-class DashboardPresenterImpl(val view: DashboardContract.View) :
-    DashboardContract.Presenter {
-
-    override fun setScreenDetails() {
-        view.setScreenDetails()
-    }
-}
+data class GlobalCountryDataModel(
+    val globalDataModel: GlobalDataModel,
+    val countryDataList: List<CountryDataModel>
+)

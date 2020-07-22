@@ -1,35 +1,70 @@
+/*
+ * Copyright 2020 Sushant Hande
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.sushanthande.gocorona.ui.indiaupdate
 
 import com.sushanthande.gocorona.model.StateModel
-import com.sushanthande.gocorona.network.*
-import retrofit2.Response
+import com.sushanthande.gocorona.network.ApiClient
+import com.sushanthande.gocorona.network.ApiRequests
+import com.sushanthande.gocorona.network.ApiResponse
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
+import io.reactivex.observers.DisposableObserver
+import io.reactivex.schedulers.Schedulers
 
 /**
  *Created by Sushant Hande on 11-04-2020
  */
 class IndiaUpdatePresenterImpl(val view: IndiaUpdateContract.View) : IndiaUpdateContract.Presenter {
 
+    private val compositeDisposable = CompositeDisposable()
+
     override fun getIndiaUpdate() {
         view.hideParentView()
         view.showProgressBar()
         val apiRequest = ApiClient.createIndiaService(ApiRequests.India::class.java)
-        val call = apiRequest?.getData()
-        call?.enqueue(RetrofitCallback(object : CustomCallback {
-            override fun onSuccess(response: Response<ApiResponse>) {
-                view.showParentView()
-                view.hideProgressBar()
-                view.setIndiaUpdate(response.body().stateList as ArrayList<StateModel>)
-            }
+        val disposable: Disposable = apiRequest.getData()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(object : DisposableObserver<ApiResponse>() {
 
-            override fun onFailed(error: String) {
-                view.hideProgressBar()
-                view.hideParentView()
-                view.showCheckInternetView()
-            }
-        }))
+                override fun onNext(response: ApiResponse) {
+                    view.showParentView()
+                    view.hideProgressBar()
+                    view.setIndiaUpdate(response.stateList as ArrayList<StateModel>)
+                }
+
+                override fun onError(e: Throwable) {
+                    view.hideProgressBar()
+                    view.hideParentView()
+                    view.showCheckInternetView()
+                }
+
+                override fun onComplete() {}
+            })
+
+        compositeDisposable.add(disposable)
     }
 
     override fun onRetryClick() {
         view.onRetryClick()
+    }
+
+    override fun clear() {
+        compositeDisposable.dispose()
     }
 }

@@ -16,14 +16,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
-        <item name="android:background">@color/black_overlay</item>
+    <style name="ToolBarTextAppearance" parent="Widget.MaterialComponents.Toolbar">
+        <item name="fontFamily">@font/montserrat</item>
+        <item name="android:textSize">18sp</item>
     </style>
-
-<style name="ToolBarTextAppearance" parent="Widget.MaterialComponents.Toolbar">
-    <item name="fontFamily">@font/montserrat</item>
-    <item name="android:textSize">18sp</item>
-</style>
 
     <style name="TabTextAppearance" parent="Widget.MaterialComponents.TabLayout.Colored">
         <item name="fontFamily">@font/montserrat</item>

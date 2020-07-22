@@ -1,3 +1,19 @@
+/*
+ * Copyright 2020 Sushant Hande
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.sushanthande.gocorona.ui.dashboard.fragments.setting
 
 import android.content.DialogInterface
@@ -50,56 +66,58 @@ class SettingFragment : Fragment(), View.OnClickListener {
     private fun showLanguagePicker() {
         var selectedItem = -1
         val languageList = arrayOf(LanguageUtil.ENGLISH, LanguageUtil.HINDI, LanguageUtil.MARATHI)
-        val materialDialog = MaterialAlertDialogBuilder(activity).apply {
+        val materialDialog = activity?.let {
+            MaterialAlertDialogBuilder(it).apply {
 
-                setSingleChoiceItems(languageList, selectedItem) { _, which ->
-                    selectedItem = which
-                }
-                setTitle(R.string.select_langugae)
-                setPositiveButton(R.string.ok) { dialog, _ ->
-                    when (selectedItem) {
-                        0 -> {
-                            Prefs.putString(
-                                SELECTED_LANGUAGE,
-                                LanguageUtil.LanguagePrefix.ENGLISH.language
-                            )
-                            restartApp()
-                            dialog.dismiss()
+                    setSingleChoiceItems(languageList, selectedItem) { _, which ->
+                        selectedItem = which
+                    }
+                    setTitle(R.string.select_langugae)
+                    setPositiveButton(R.string.ok) { dialog, _ ->
+                        when (selectedItem) {
+                            0 -> {
+                                Prefs.putString(
+                                    SELECTED_LANGUAGE,
+                                    LanguageUtil.LanguagePrefix.ENGLISH.language
+                                )
+                                restartApp()
+                                dialog.dismiss()
+                            }
+
+                            1 -> {
+                                Prefs.putString(
+                                    SELECTED_LANGUAGE,
+                                    LanguageUtil.LanguagePrefix.HINDI.language
+                                )
+                                restartApp()
+                                dialog.dismiss()
+                            }
+
+                            2 -> {
+                                Prefs.putString(
+                                    SELECTED_LANGUAGE,
+                                    LanguageUtil.LanguagePrefix.MARATHI.language
+                                )
+                                restartApp()
+                                dialog.dismiss()
+                            }
                         }
 
-                        1 -> {
-                            Prefs.putString(
-                                SELECTED_LANGUAGE,
-                                LanguageUtil.LanguagePrefix.HINDI.language
-                            )
-                            restartApp()
-                            dialog.dismiss()
-                        }
-
-                        2 -> {
-                            Prefs.putString(
-                                SELECTED_LANGUAGE,
-                                LanguageUtil.LanguagePrefix.MARATHI.language
-                            )
-                            restartApp()
-                            dialog.dismiss()
-                        }
+                        dialog.dismiss()
                     }
 
-                    dialog.dismiss()
+                    setNegativeButton(R.string.cancel) { dialog, _ ->
+                        dialog.dismiss()
+                    }
                 }
-
-                setNegativeButton(R.string.cancel) { dialog, _ ->
-                    dialog.dismiss()
-                }
-            }
-            .show()
+                .show()
+        }
 
         context?.let {
-            materialDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-                .setTextColor(ContextCompat.getColor(it, R.color.blue))
-            materialDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
-                .setTextColor(ContextCompat.getColor(it, R.color.dark_gray))
+            materialDialog?.getButton(DialogInterface.BUTTON_POSITIVE)
+                ?.setTextColor(ContextCompat.getColor(it, R.color.blue))
+            materialDialog?.getButton(DialogInterface.BUTTON_NEGATIVE)
+                ?.setTextColor(ContextCompat.getColor(it, R.color.dark_gray))
         }
     }
 

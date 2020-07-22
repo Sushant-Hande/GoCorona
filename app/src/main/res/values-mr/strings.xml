@@ -2,13 +2,11 @@
     <string name="app_name">GoCorona</string>
     <string name="share">Share</string>
     <string name="home">होम</string>
-    <string name="notifications">Notification</string>
     <string name="setting">सेटींग</string>
     <string name="language">भाषा</string>
     <string name="news">न्यूज</string>
     <string name="global_updates">ग्लोबल अपडेट्स</string>
     <string name="covid19">COVID&#8211;19</string>
-    <string name="no_notifications_available">No notifications available....</string>
     <string name="select_langugae">Select Language</string>
     <string name="ok">ठीक</string>
     <string name="cancel">Cancel</string>
@@ -41,7 +39,6 @@
     <string name="share_app">जगातील विविध देशांमधील, कोरोनाविषयी(COVID-19) नवीनतम माहिती मिळविण्यासाठी GoCorona अॅप डाउनलोड करा. GoCorona अॅप, इंग्रजी, मराठी आणि हिंदी भाषांमध्ये उपलब्ध आहे.
     \n\n Download Link:- \nhttp://fourthquadrant.comli.com/androidapp/gocorona/gocorona.apk</string>
     <string name="New">New</string>
-    <string name="country_details">Country Details</string>
     <string name="active">Active</string>
     <string name="critical">गंभीर</string>
     <string name="today_deaths">आज मृत्यू</string>

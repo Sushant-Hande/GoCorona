@@ -1,9 +1,24 @@
+/*
+ * Copyright 2020 Sushant Hande
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.sushanthande.gocorona.network
 
 import com.sushanthande.gocorona.model.CountryDataModel
 import com.sushanthande.gocorona.model.GlobalDataModel
-import com.sushanthande.gocorona.model.StateModel
-import retrofit2.Call
+import io.reactivex.Observable
 import retrofit2.http.GET
 
 /**
@@ -13,15 +28,15 @@ interface ApiRequests {
 
     interface Global {
         @GET("all")
-        fun getGlobalData(): Call<GlobalDataModel>
+        fun getGlobalData(): Observable<GlobalDataModel>
 
         @GET("countries?sort=country")
-        fun getAllCountryData(): Call<List<CountryDataModel>>
+        fun getAllCountryData(): Observable<List<CountryDataModel>>
     }
 
     interface India {
         @GET("data.json")
-        fun getData():Call<ApiResponse>
+        fun getData():Observable<ApiResponse>
     }
 
 }
