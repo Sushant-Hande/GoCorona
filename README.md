@@ -10,12 +10,18 @@ The GoCorona is an Android application that provides the latest information and 
 # Screenshots
 <table style="width:100%">
   <tr>
+    <th>OnBoarding</th>
     <th>Dashboard</th>
+  </tr>
+  <tr>
+    <td><img src="screenshots/wear_mask.png"/></td>
+    <td><img src="screenshots/dashboard.png"/></td>
+  </tr>
+  <tr>
     <th>India Updates</th>
     <th>Global Updates</th>
   </tr>
   <tr>
-    <td><img src="screenshots/dashboard.png"/></td>
     <td><img src="screenshots/india_updates.png"/></td> 
     <td><img src="screenshots/global_updates.png"/></td>
   </tr>
